@@ -2,3 +2,7 @@
   text-align: right;
   direction: rtl;
 }
+
+body {
+  background-color: rgb(215, 223, 226);
+}
