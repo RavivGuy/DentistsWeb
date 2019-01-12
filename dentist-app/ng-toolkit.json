@@ -1,0 +1,8 @@
+{
+  "universal": {
+    "project": "dentist-app",
+    "skipInstall": false,
+    "directory": ".",
+    "http": true
+  }
+}
