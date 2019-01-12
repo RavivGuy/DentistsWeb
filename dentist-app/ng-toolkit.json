@@ -4,5 +4,15 @@
     "skipInstall": false,
     "directory": ".",
     "http": true
+  },
+  "serverless": {
+    "provider": "aws",
+    "project": "dentist-app",
+    "skipInstall": false,
+    "directory": ".",
+    "serverless": {
+      "aws": {},
+      "gcloud": {}
+    }
   }
 }
