@@ -1,0 +1,9 @@
+agm-map {
+  height: 400px;
+  width: 85%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
