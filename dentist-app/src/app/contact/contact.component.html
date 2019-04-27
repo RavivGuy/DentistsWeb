@@ -1,95 +1,66 @@
-<div style="margin-top: 30px">
-  <h3 style="text-align: center">מרפאת השן -נתניה</h3>
-<label>כתובת: שד. טום לנטוס 26 קריית השרון –נתניה (מרכז אלון ) כניסה B קומה 1</label>
-<br>
-<label>טלפון: 050-8828573</label>
-<br>
-<label>מייל ליצירת קשר- shenpoleg@gmail.com</label>
-
-</div>
 <div class="flex-container">
-    <agm-map [zoom]="16" [latitude]="latitude" [longitude]="longitude">
-      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-    </agm-map>
+  <div class="flex-item">
+    <div class="contactDetails">
+      <h3 style="text-align: center">מרפאת השן -נתניה</h3>
+      <p>כתובת: שד. טום לנטוס 26 קריית השרון –נתניה (מרכז אלון ) כניסה B קומה 1</p>
+      <p>טלפון: 050-8828573</p>
+      <p>מייל ליצירת קשר- shenpoleg@gmail.com</p>
+
+    </div>
+    <div>
+      <agm-map [zoom]="16" [latitude]="latitude" [longitude]="longitude">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </div>
   </div>
 
-  <div class="container">
-      <h3 style="text-align: center; margin-top: 30px">טופס בקשת התקשרות</h3>
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-          <form (ngSubmit)="onSubmit()" #f="ngForm">
-            <div
-              id="user-data"
-              ngModelGroup="userData"
-              #userData="ngModelGroup">
-              <div class="form-group">
-                <label for="username">שם מלא</label>
-                <input
-                  type="text"
-                  id="username"
-                  class="form-control"
-                  ngModel
-                  name="username"
-                  required>
-              </div>
+  <div class="flex-item"></div>
 
-              <div class="form-group">
-                <label for="phone">מספר פלאפון</label>
-                <input
-                  type="text"
-                  id="phone"
-                  class="form-control"
-                  ngModel
-                  name="phone"
-                  required
-                  phone
-                  #phone="ngModel">
-                <span class="help-block" *ngIf="!phone.valid && phone.touched">הכנס מספר פלאפון תקין</span>
-                <span>{{ user.phone }}</span>
-              </div>
-
-              <div class="form-group">
-                <label for="email">כתובת מייל</label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  ngModel
-                  name="email"
-                  required
-                  email
-                  #email="ngModel">
-                <span class="help-block" *ngIf="!email.valid && email.touched">הכנס מייל תקין!</span>
-              </div>
+  <div class="flex-item">
+    <h3>טופס בקשת התקשרות</h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-sm-offset-1 col-md-offset-2">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+            <div class="form-group">
+              <label for="username">שם מלא</label>
+              <input type="text" id="username" class="form-control" ngModel name="username" required>
             </div>
-
-            <p *ngIf="!userData.valid && userData.touched">אחד מהפרטים שהוזמנו אינם תקינים</p>
 
             <div class="form-group">
-              <label for="contactRequest">נא למלא את הבקשה הרצויה בתיבה הבאה:</label>
-              <textarea
-                name="contactRequest"
-                rows="3"
-                class="form-control"
-                [(ngModel)]="contactRequest"></textarea>
+              <label for="phone">מספר פלאפון</label>
+              <input type="text" id="phone" class="form-control" ngModel name="phone" required phone #phone="ngModel">
+              <span class="help-block" *ngIf="!phone.valid && phone.touched">הכנס מספר פלאפון תקין</span>
+              <span>{{ user.phone }}</span>
             </div>
 
-            <button
-              class="btn btn-primary"
-              type="submit"
-              [disabled]="!f.valid">Submit</button>
-          </form>
-        </div>
-      </div>
-      <hr>
-      <div class="row" *ngIf="submitted">
-        <div class="col-xs-12">
-          <h3 style="color: red">הבקשה נשלחה בהצלחה</h3>
-          <p>שם מלא: {{ user.username }}</p>
-          <p>מייל: {{ user.email }}</p>
-          <p>פלאפון: {{ user.phone }}</p>
-          <p>הבקשה: <q> {{ user.contactRequest }} </q> </p>
-        </div>
+            <div class="form-group">
+              <label for="email">כתובת מייל</label>
+              <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+              <span class="help-block" *ngIf="!email.valid && email.touched">הכנס מייל תקין!</span>
+            </div>
+          </div>
+
+          <p *ngIf="!userData.valid && userData.touched">אחד מהפרטים שהוזמנו אינם תקינים</p>
+
+          <div class="form-group">
+            <label for="contactRequest">נא למלא את הבקשה הרצויה בתיבה הבאה:</label>
+            <textarea name="contactRequest" rows="3" class="form-control" [(ngModel)]="contactRequest"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        </form>
       </div>
     </div>
-
+    <hr>
+    <div class="row" *ngIf="submitted">
+      <div class="col-xs-12">
+        <h3 style="color: red">הבקשה נשלחה בהצלחה</h3>
+        <p>שם מלא: {{ user.username }}</p>
+        <p>מייל: {{ user.email }}</p>
+        <p>פלאפון: {{ user.phone }}</p>
+        <p>הבקשה: <q> {{ user.contactRequest }} </q> </p>
+      </div>
+    </div>
+  </div>
+</div>
